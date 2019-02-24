@@ -22,4 +22,12 @@ public class ASTNameType {
     public String getType() {
         return type;
     }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                '}';
+    }
 }

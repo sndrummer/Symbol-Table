@@ -20,7 +20,7 @@ public interface ISymbolTable {
 
     public boolean methodExists(String classFQN, String methodName);
 
-    public boolean fieldExists(String classFQN, String methodName);
+    public boolean fieldExists(String classFQN, String fieldName);
 
     /**
      * The format for output will not be checked precisely. Output should include

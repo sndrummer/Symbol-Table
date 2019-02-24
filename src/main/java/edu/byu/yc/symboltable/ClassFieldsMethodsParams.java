@@ -1,5 +1,7 @@
-package edu.byu.yc;
+package edu.byu.yc.symboltable;
 
+
+import org.eclipse.jdt.core.dom.AST;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -69,5 +71,22 @@ public class ClassFieldsMethodsParams {
 
     public Map<ASTNameType, List<ASTNameType>> getMethodParamsMap() {
         return methodParamsMap;
+    }
+
+    public void addField(ASTNameType fieldNameTypes) {
+        fields.add(fieldNameTypes);
+    }
+
+    public void addMethod(ASTNameType methodNameType, List<ASTNameType> paramNameTypes) {
+        methodParamsMap.put(methodNameType, paramNameTypes);
+    }
+
+    @Override
+    public String toString() {
+        return "ClassFieldsMethodsParams{" +
+                "classFQN='" + classFQN + '\'' +
+                ", fields=" + fields +
+                ", methodParamsMap=" + methodParamsMap +
+                '}';
     }
 }
