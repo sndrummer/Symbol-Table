@@ -96,11 +96,11 @@ public class SymbolTable implements ISymbolTable {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("SymbolTable{\n");
+        sb.append("SymbolTable\n{\n");
         for (Map.Entry<String, ClassFieldsMethodsParams> entry : classFieldsMethodsParamsMap.entrySet()) {
             sb.append(entry.getValue().toString());
         }
-        sb.append("}");
+        sb.append("\n}");
         return sb.toString();
     }
 

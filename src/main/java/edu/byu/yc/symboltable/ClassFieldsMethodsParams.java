@@ -8,7 +8,7 @@ import java.util.Map;
 
 /**
  * @author Samuel Nuttall
- *
+ * <p>
  * ClassFieldsMethodsParams contains an individual class's fields, methods, and params types and names
  * This class is an integral part of the symbol table and holds all the relevent information for an
  * a class that has been visited by the symbol table visitor.
@@ -56,7 +56,7 @@ public class ClassFieldsMethodsParams {
      */
     public String getMethodTypeByName(String methodName) {
         String methodType = null;
-        for (Map.Entry<ASTNameType, List<ASTNameType>> entry: methodParamsMap.entrySet()) {
+        for (Map.Entry<ASTNameType, List<ASTNameType>> entry : methodParamsMap.entrySet()) {
             if (entry.getKey().getName().equals(methodName))
                 methodType = entry.getKey().getType();
         }
@@ -68,13 +68,18 @@ public class ClassFieldsMethodsParams {
      * Returns the type of the parameter that matches the given method name and parameter name
      *
      * @param methodName String name of the method
-     * @param paramName String name of the parameter
+     * @param paramName  String name of the parameter
      * @return String representation of the type of the parameter
      */
     public String getParamTypeByName(String methodName, String paramName) {
-       String type = "";
-        List<ASTNameType> params = methodParamsMap.get(methodName);
+        String type = null;
+        List<ASTNameType> params = null;
+        for (Map.Entry<ASTNameType, List<ASTNameType>> entry : methodParamsMap.entrySet()) {
+            if (entry.getKey().getName().equals(methodName))
+                params = entry.getValue();
+        }
 
+        if (params == null) return null;
         for (ASTNameType nameType : params) {
             if (nameType.getName().equals(paramName))
                 type = nameType.getType();
@@ -104,10 +109,8 @@ public class ClassFieldsMethodsParams {
 
     @Override
     public String toString() {
-        return "ClassFieldsMethodsParams{" +
-                "Class FQN ='" + classFQN + '\'' +
-                ", Fields =" + fields +
-                ", Method-Params =" + methodParamsMap +
-                '}';
+        return "\tClassFQN='" + classFQN + '\'' +
+                ", \n\tFields=" + fields +
+                ", \n\tMethodParams=" + methodParamsMap;
     }
 }
