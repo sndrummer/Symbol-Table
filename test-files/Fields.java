@@ -1,9 +1,6 @@
 package edu.byu.yc.tests;
 
-import org.eclipse.jdt.core.dom.ASTNode;
-
-
-public class Properties {
+public class Fields {
 
     private String cheese = "";
 

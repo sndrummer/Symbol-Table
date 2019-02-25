@@ -5,7 +5,7 @@ import org.eclipse.jdt.core.dom.ASTNode;
 /**
  * @author Samuel Nuttall
  */
-public class Properties {
+public class Fields {
 
     private String cheese = "";
 
